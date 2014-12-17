@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<tupleModel xmlns="http://www.ibm.com/xmlns/prod/streams/spl/tuple" class="BeJwrMS4yyUvMTS0yLUvMKU0tNjJILMosychNLclMdq0oKEotLs7MzwMAGOgODi" equalitySupported="true" facade="false" splType="tuple&lt;ustring name,ustring value,rstring arithmeticExpression>" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <headers/>
+
+  <attributes>
+    <attribute>
+      <name>name</name>
+      <cppType>SPL::ustring</cppType>
+      <splType>ustring</splType>
+    </attribute>
+    <attribute>
+      <name>value</name>
+      <cppType>SPL::ustring</cppType>
+      <splType>ustring</splType>
+    </attribute>
+    <attribute>
+      <name>arithmeticExpression</name>
+      <cppType>SPL::rstring</cppType>
+      <splType>rstring</splType>
+    </attribute>
+  </attributes>
+
+</tupleModel>

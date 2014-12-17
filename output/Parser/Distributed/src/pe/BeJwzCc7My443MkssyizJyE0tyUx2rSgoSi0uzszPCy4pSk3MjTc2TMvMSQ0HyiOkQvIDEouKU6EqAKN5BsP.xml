@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<peModel xmlns="http://www.ibm.com/xmlns/prod/streams/spl/pe" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <context>
+    <class>BeJwzCc7My443MkssyizJyE0tyUx2rSgoSi0uzszPCy4pSk3MjTc2TMvMSQ0HyiOkQvIDEouKU6EqAKN5BsP</class>
+    <nlLocation location="Install" path="/toolkits/com.ibm.streams.bigdata" toolkitName="com.ibm.streams.bigdata"/>
+    <nlLocation location="Install" path="/toolkits/com.ibm.streams.cep" toolkitName="com.ibm.streams.cep"/>
+    <nlLocation location="Install" path="/toolkits/com.ibm.streams.db" toolkitName="com.ibm.streams.db"/>
+    <nlLocation location="Install" path="/toolkits/com.ibm.streams.financial" toolkitName="com.ibm.streams.financial"/>
+    <nlLocation location="Install" path="/toolkits/com.ibm.streams.inet" toolkitName="com.ibm.streams.inet"/>
+    <nlLocation location="Install" path="/toolkits/com.ibm.streams.messaging" toolkitName="com.ibm.streams.messaging"/>
+    <nlLocation location="Install" path="/toolkits/com.ibm.streams.mining" toolkitName="com.ibm.streams.mining"/>
+    <nlLocation location="Install" path="/toolkits/com.ibm.streams.timeseries" toolkitName="com.ibm.streams.timeseries"/>
+    <avoidRuntimeYield>Auto</avoidRuntimeYield>
+  </context>
+
+  <operators>
+    <operator>
+      <class>Sink</class>
+    </operator>
+    <operator>
+      <class>arithmeticExpressionStream</class>
+    </operator>
+    <operator>
+      <class>fileWithExpressionToParseStream</class>
+    </operator>
+  </operators>
+
+</peModel>

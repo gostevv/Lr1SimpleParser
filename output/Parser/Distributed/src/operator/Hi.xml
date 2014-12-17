@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<operatorInstanceModel xmlns="http://www.ibm.com/xmlns/prod/streams/spl/operator/instance" xmlns:tt="http://www.ibm.com/xmlns/prod/streams/spl/tupleType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <context>
+    <kind>spl.utility::Beacon</kind>
+    <class>Hi</class>
+    <operatorModelDirectory>/opt/ibm/InfoSphereStreams/toolkits/spl/spl/utility/Beacon</operatorModelDirectory>
+    <applicationDirectory>/home/streamsadmin/workspace/parser_lr1</applicationDirectory>
+    <dataDirectory>/home/streamsadmin/workspace/parser_lr1/data</dataDirectory>
+    <outputDirectory>/home/streamsadmin/workspace/parser_lr1/output/Parser/Distributed</outputDirectory>
+    <optimized>false</optimized>
+    <verbose>false</verbose>
+    <networkByteOrdering>false</networkByteOrdering>
+    <codeBeautification>false</codeBeautification>
+    <includes>
+      <include>"../type/BeJwrMSw2z00tLk5MTwUAGG4EA1.h"</include>
+    </includes>
+    <stateVariables/>
+    <runtimeConstants>
+      <runtimeConstant>
+        <name>lit$0</name>
+        <cppType>SPL::uint32</cppType>
+        <splType>uint32</splType>
+        <value>1</value>
+      </runtimeConstant>
+      <runtimeConstant>
+        <name>lit$1</name>
+        <cppType>SPL::rstring</cppType>
+        <splType>rstring</splType>
+        <value>"Hello World!"</value>
+      </runtimeConstant>
+    </runtimeConstants>
+    <sourceLocation>
+      <file>Parser.spl</file>
+      <line>6</line>
+      <column>3</column>
+    </sourceLocation>
+    <productVersion>3.2.1.0</productVersion>
+    <checkpointKind>none</checkpointKind>
+  </context>
+
+  <parameters>
+    <parameter>
+      <name>iterations</name>
+      <values>
+        <value>
+          <cppType>SPL::uint32</cppType>
+          <splType>uint32</splType>
+          <hasRuntimeConstant>true</hasRuntimeConstant>
+          <cppExpression>lit$0</cppExpression>
+          <splExpression>1</splExpression>
+          <hasFunctions>false</hasFunctions>
+          <hasSideEffects>false</hasSideEffects>
+          <hasStreamAttributes>false</hasStreamAttributes>
+          <parameterExpressionMode>AttributeFree</parameterExpressionMode>
+          <sourceLocation>
+            <file>Parser.spl</file>
+            <line>9</line>
+            <column>17</column>
+          </sourceLocation>
+        </value>
+      </values>
+      <sourceLocation>
+        <file>Parser.spl</file>
+        <line>9</line>
+        <column>5</column>
+      </sourceLocation>
+    </parameter>
+  </parameters>
+
+  <inputPorts/>
+
+  <outputPorts>
+    <outputPort>
+      <index>0</index>
+      <tupleCppName>oport$0</tupleCppName>
+      <tupleCppType>SPL::BeJwrMSw2z00tLk5MTwUAGG4EA1</tupleCppType>
+      <tupleSPLType>tuple&lt;rstring message&gt;</tupleSPLType>
+      <facade>false</facade>
+      <mutationAllowed>false</mutationAllowed>
+      <sourceLocation>
+        <file>Parser.spl</file>
+        <line>6</line>
+        <column>3</column>
+      </sourceLocation>
+      <attributes>
+        <attribute>
+          <name>message</name>
+          <cppType>SPL::rstring</cppType>
+          <splType>rstring</splType>
+          <assignment>
+            <sourceLocation>
+              <file>Parser.spl</file>
+              <line>12</line>
+              <column>9</column>
+            </sourceLocation>
+            <outputFunction>AsIs</outputFunction>
+            <values>
+              <value>
+                <cppType>SPL::rstring</cppType>
+                <splType>rstring</splType>
+                <hasRuntimeConstant>true</hasRuntimeConstant>
+                <cppExpression>lit$1</cppExpression>
+                <splExpression>"Hello World!"</splExpression>
+                <hasFunctions>false</hasFunctions>
+                <hasSideEffects>false</hasSideEffects>
+                <hasStreamAttributes>false</hasStreamAttributes>
+                <sourceLocation>
+                  <file>Parser.spl</file>
+                  <line>12</line>
+                  <column>19</column>
+                </sourceLocation>
+              </value>
+            </values>
+          </assignment>
+        </attribute>
+      </attributes>
+      <tuple>
+        <tt:attr name="message" type="rstring"/>
+      </tuple>
+      <finalPunctuationPortScope/>
+    </outputPort>
+  </outputPorts>
+
+</operatorInstanceModel>

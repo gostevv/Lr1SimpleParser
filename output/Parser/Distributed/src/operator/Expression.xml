@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<operatorInstanceModel xmlns="http://www.ibm.com/xmlns/prod/streams/spl/operator/instance" xmlns:tt="http://www.ibm.com/xmlns/prod/streams/spl/tupleType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <context>
+    <kind>spl.utility::Beacon</kind>
+    <class>Expression</class>
+    <operatorModelDirectory>/opt/ibm/InfoSphereStreams/toolkits/spl/spl/utility/Beacon</operatorModelDirectory>
+    <applicationDirectory>/home/streamsadmin/workspace/parser_lr1</applicationDirectory>
+    <dataDirectory>/home/streamsadmin/workspace/parser_lr1/data</dataDirectory>
+    <outputDirectory>/home/streamsadmin/workspace/parser_lr1/output/Parser/Distributed</outputDirectory>
+    <optimized>false</optimized>
+    <verbose>false</verbose>
+    <networkByteOrdering>false</networkByteOrdering>
+    <codeBeautification>false</codeBeautification>
+    <includes>
+      <include>"../type/BeJwrMczxMs9NLS5OTE8FABvbAR4.h"</include>
+    </includes>
+    <stateVariables/>
+    <runtimeConstants>
+      <runtimeConstant>
+        <name>lit$0</name>
+        <cppType>SPL::uint32</cppType>
+        <splType>uint32</splType>
+        <value>1</value>
+      </runtimeConstant>
+      <runtimeConstant>
+        <name>lit$1</name>
+        <cppType>SPL::list&lt;SPL::uint8 &gt;</cppType>
+        <splType>list&lt;uint8&gt;</splType>
+        <value>[40, 49, 54, 43, 49, 42, 40, 50, 45, 52, 41, 41, 47, 40, 40, 51, 43, 49, 41, 42, 50, 41]</value>
+      </runtimeConstant>
+    </runtimeConstants>
+    <sourceLocation>
+      <file>Parser.spl</file>
+      <line>6</line>
+      <column>3</column>
+    </sourceLocation>
+    <productVersion>3.2.1.0</productVersion>
+    <checkpointKind>none</checkpointKind>
+  </context>
+
+  <parameters>
+    <parameter>
+      <name>iterations</name>
+      <values>
+        <value>
+          <cppType>SPL::uint32</cppType>
+          <splType>uint32</splType>
+          <hasRuntimeConstant>true</hasRuntimeConstant>
+          <cppExpression>lit$0</cppExpression>
+          <splExpression>1</splExpression>
+          <hasFunctions>false</hasFunctions>
+          <hasSideEffects>false</hasSideEffects>
+          <hasStreamAttributes>false</hasStreamAttributes>
+          <parameterExpressionMode>AttributeFree</parameterExpressionMode>
+          <sourceLocation>
+            <file>Parser.spl</file>
+            <line>9</line>
+            <column>17</column>
+          </sourceLocation>
+        </value>
+      </values>
+      <sourceLocation>
+        <file>Parser.spl</file>
+        <line>9</line>
+        <column>5</column>
+      </sourceLocation>
+    </parameter>
+  </parameters>
+
+  <inputPorts/>
+
+  <outputPorts>
+    <outputPort>
+      <index>0</index>
+      <tupleCppName>oport$0</tupleCppName>
+      <tupleCppType>SPL::BeJwrMczxMs9NLS5OTE8FABvbAR4</tupleCppType>
+      <tupleSPLType>tuple&lt;list&lt;uint8&gt; message&gt;</tupleSPLType>
+      <facade>false</facade>
+      <mutationAllowed>false</mutationAllowed>
+      <sourceLocation>
+        <file>Parser.spl</file>
+        <line>6</line>
+        <column>3</column>
+      </sourceLocation>
+      <attributes>
+        <attribute>
+          <name>message</name>
+          <cppType>SPL::list&lt;SPL::uint8 &gt;</cppType>
+          <splType>list&lt;uint8&gt;</splType>
+          <assignment>
+            <sourceLocation>
+              <file>Parser.spl</file>
+              <line>12</line>
+              <column>17</column>
+            </sourceLocation>
+            <outputFunction>AsIs</outputFunction>
+            <values>
+              <value>
+                <cppType>SPL::list&lt;SPL::uint8 &gt;</cppType>
+                <splType>list&lt;uint8&gt;</splType>
+                <hasRuntimeConstant>true</hasRuntimeConstant>
+                <cppExpression>lit$1</cppExpression>
+                <splExpression>convertFromUtf8("(16+1*(2-4))/((3+1)*2)", "utf8")</splExpression>
+                <hasFunctions>false</hasFunctions>
+                <hasSideEffects>false</hasSideEffects>
+                <hasStreamAttributes>false</hasStreamAttributes>
+                <sourceLocation>
+                  <file>Parser.spl</file>
+                  <line>12</line>
+                  <column>27</column>
+                </sourceLocation>
+              </value>
+            </values>
+          </assignment>
+        </attribute>
+      </attributes>
+      <tuple>
+        <tt:attr name="message">
+          <tt:list elementType="uint8"/>
+        </tt:attr>
+      </tuple>
+      <finalPunctuationPortScope/>
+    </outputPort>
+  </outputPorts>
+
+</operatorInstanceModel>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<toolkitModel xmlns="http://www.ibm.com/xmlns/prod/streams/spl/toolkit" productVersion="3.2.1.0" xmlns:common="http://www.ibm.com/xmlns/prod/streams/spl/common" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <toolkit name="parser_lr1" requiredProductVersion="3.2.1.0" version="1.0.0">
+    <description/>
+    <uriTable>
+      <uri index="1" value="Parser.spl"/>
+    </uriTable>
+    <namespace name="">
+      <compositeOp column="11" line="3" name="Parser" potentialMain="true" uriIndex="1"/>
+    </namespace>
+    <dependency>
+      <common:name>com.ibm.streams.bigdata</common:name>
+      <common:version>2.1.0</common:version>
+    </dependency>
+    <dependency>
+      <common:name>com.ibm.streams.cep</common:name>
+      <common:version>1.0.0</common:version>
+    </dependency>
+    <dependency>
+      <common:name>com.ibm.streams.db</common:name>
+      <common:version>1.4.0</common:version>
+    </dependency>
+    <dependency>
+      <common:name>com.ibm.streams.etl.datastage</common:name>
+      <common:version>1.0.0</common:version>
+    </dependency>
+    <dependency>
+      <common:name>com.ibm.streams.financial</common:name>
+      <common:version>1.0.0</common:version>
+    </dependency>
+    <dependency>
+      <common:name>com.ibm.streams.geospatial</common:name>
+      <common:version>1.1.1</common:version>
+    </dependency>
+    <dependency>
+      <common:name>com.ibm.streams.inet</common:name>
+      <common:version>1.0.0</common:version>
+    </dependency>
+    <dependency>
+      <common:name>com.ibm.streams.messaging</common:name>
+      <common:version>2.1.0</common:version>
+    </dependency>
+    <dependency>
+      <common:name>com.ibm.streams.mining</common:name>
+      <common:version>1.0.0</common:version>
+    </dependency>
+    <dependency>
+      <common:name>com.ibm.streams.text</common:name>
+      <common:version>1.2.0</common:version>
+    </dependency>
+    <dependency>
+      <common:name>com.ibm.streams.timeseries</common:name>
+      <common:version>2.1.0</common:version>
+    </dependency>
+    <dependency>
+      <common:name>com.ibm.streamsx.dps</common:name>
+      <common:version>1.0.0</common:version>
+    </dependency>
+    <dependency>
+      <common:name>com.ibm.streamsx.ps</common:name>
+      <common:version>1.0.0</common:version>
+    </dependency>
+  </toolkit>
+
+</toolkitModel>

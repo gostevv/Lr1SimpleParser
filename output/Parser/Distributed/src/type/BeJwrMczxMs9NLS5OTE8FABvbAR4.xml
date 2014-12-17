@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<tupleModel xmlns="http://www.ibm.com/xmlns/prod/streams/spl/tuple" class="BeJwrMczxMs9NLS5OTE8FABvbAR4" equalitySupported="true" facade="false" splType="tuple&lt;list&lt;uint8> message>" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <headers/>
+
+  <attributes>
+    <attribute>
+      <name>message</name>
+      <cppType>SPL::list&lt;SPL::uint8 &gt;</cppType>
+      <splType>list&lt;uint8&gt;</splType>
+    </attribute>
+  </attributes>
+
+</tupleModel>

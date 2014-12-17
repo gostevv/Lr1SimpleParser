@@ -1,0 +1,42 @@
+
+
+composite Parser
+{
+
+	graph
+		stream <rstring fileWithExpressionToParse> fileWithExpressionToParseStream = DirectoryScan() 
+		{
+			param
+				directory: "/home/streamsadmin/workspace/input";
+			//	moveToDirectory: "/home/streamsadmin/workspace/input/processed";
+				sleepTime: 5.0;
+				pattern: ".*\\.txt";
+				initDelay: 5.0; 
+		}
+
+		stream <rstring arithmeticExpression> arithmeticExpressionStream = FileSource(fileWithExpressionToParseStream) 
+		{
+			param
+				format: line;
+		}
+
+		stream<rstring arithmeticExpressionTree> Lr1Parser = JavaOp(arithmeticExpressionStream)                                                                                  
+		{                                                                                            
+			param                                                                                      
+		    	className : "lr1.ParserMachine";             
+				classLibrary: "bin";
+				generated: true;                                                                        
+		        vmArg: "-Xmx128m";                                                                       
+		}              
+		
+		() as Sink = FileSink(Lr1Parser) 
+		{
+			param                                                                                           
+			    file : "/home/streamsadmin/workspace/output/1.xml";
+			    closeMode : dynamic;
+			    quoteStrings : false;
+			    writePunctuations : true;
+		}
+
+}
+

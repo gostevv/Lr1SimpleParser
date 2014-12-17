@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<operatorInstanceModel xmlns="http://www.ibm.com/xmlns/prod/streams/spl/operator/instance" xmlns:tt="http://www.ibm.com/xmlns/prod/streams/spl/tupleType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <context>
+    <kind>spl.adapter::FileSource</kind>
+    <class>arithmeticExpressionStream</class>
+    <operatorModelDirectory>/opt/ibm/InfoSphereStreams/toolkits/spl/spl/adapter/FileSource</operatorModelDirectory>
+    <applicationDirectory>/home/streamsadmin/workspace/parser_lr1</applicationDirectory>
+    <dataDirectory>/home/streamsadmin/workspace/parser_lr1/data</dataDirectory>
+    <outputDirectory>/home/streamsadmin/workspace/parser_lr1/output/Parser/Distributed</outputDirectory>
+    <optimized>false</optimized>
+    <verbose>false</verbose>
+    <networkByteOrdering>false</networkByteOrdering>
+    <codeBeautification>false</codeBeautification>
+    <includes>
+      <include>"../type/BeJwrMSw2Mk3LzEkNzyzJcK0oKEotLs7MzwvJD0gsKk4FAK5VAuq.h"</include>
+      <include>"../type/BeJwrMSw2MkgsyizJyE0tyUx2rSgoSi0uzszPAwB5qAnV.h"</include>
+      <include>"../type/BeJyrNI03Ti4uMy6pKDFOyswzTcrJT842ycnMSwUAf_1wJCo.h"</include>
+    </includes>
+    <stateVariables/>
+    <runtimeConstants/>
+    <sourceLocation>
+      <file>Parser.spl</file>
+      <line>17</line>
+      <column>3</column>
+    </sourceLocation>
+    <productVersion>3.2.1.0</productVersion>
+    <checkpointKind>none</checkpointKind>
+  </context>
+
+  <parameters>
+    <parameter>
+      <name>format</name>
+      <values>
+        <value>
+          <cppType>DataFormat</cppType>
+          <splType>DataFormat</splType>
+          <hasRuntimeConstant>false</hasRuntimeConstant>
+          <cppExpression>line</cppExpression>
+          <splExpression>line</splExpression>
+          <hasFunctions>false</hasFunctions>
+          <hasSideEffects>false</hasSideEffects>
+          <hasStreamAttributes>false</hasStreamAttributes>
+          <parameterExpressionMode>CustomLiteral</parameterExpressionMode>
+          <sourceLocation>
+            <file>Parser.spl</file>
+            <line>20</line>
+            <column>13</column>
+          </sourceLocation>
+        </value>
+      </values>
+      <sourceLocation>
+        <file>Parser.spl</file>
+        <line>20</line>
+        <column>5</column>
+      </sourceLocation>
+    </parameter>
+  </parameters>
+
+  <inputPorts>
+    <inputPort>
+      <index>0</index>
+      <tupleCppName>iport$0</tupleCppName>
+      <tupleCppType>SPL::BeJwrMSw2Mk3LzEkNzyzJcK0oKEotLs7MzwvJD0gsKk4FAK5VAuq</tupleCppType>
+      <tupleSPLType>tuple&lt;rstring fileWithExpressionToParse&gt;</tupleSPLType>
+      <facade>false</facade>
+      <mutationAllowed>false</mutationAllowed>
+      <sourceLocation>
+        <file>Parser.spl</file>
+        <line>17</line>
+        <column>81</column>
+      </sourceLocation>
+      <attributes>
+        <attribute>
+          <name>fileWithExpressionToParse</name>
+          <cppType>SPL::rstring</cppType>
+          <splType>rstring</splType>
+        </attribute>
+      </attributes>
+      <tuple>
+        <tt:attr name="fileWithExpressionToParse" type="rstring"/>
+      </tuple>
+    </inputPort>
+  </inputPorts>
+
+  <outputPorts>
+    <outputPort>
+      <index>0</index>
+      <tupleCppName>oport$0</tupleCppName>
+      <tupleCppType>SPL::BeJwrMSw2MkgsyizJyE0tyUx2rSgoSi0uzszPAwB5qAnV</tupleCppType>
+      <tupleSPLType>tuple&lt;rstring arithmeticExpression&gt;</tupleSPLType>
+      <facade>false</facade>
+      <mutationAllowed>true</mutationAllowed>
+      <sourceLocation>
+        <file>Parser.spl</file>
+        <line>17</line>
+        <column>3</column>
+      </sourceLocation>
+      <attributes>
+        <attribute>
+          <name>arithmeticExpression</name>
+          <cppType>SPL::rstring</cppType>
+          <splType>rstring</splType>
+        </attribute>
+      </attributes>
+      <tuple>
+        <tt:attr name="arithmeticExpression" type="rstring"/>
+      </tuple>
+      <finalPunctuationPortScope>
+        <port>0</port>
+      </finalPunctuationPortScope>
+    </outputPort>
+  </outputPorts>
+
+</operatorInstanceModel>

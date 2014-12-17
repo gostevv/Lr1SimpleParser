@@ -1,0 +1,10 @@
+	@$(CXX) $(SPL_CXXFLAGS) -o bin/Parser-a.dpe -fPIC -shared $(PEParser-a) -lstreams-stdtk-runtime -lstreams-stdtk-runtime -lstreams-stdtk-javaop -L /opt/ibm/InfoSphereStreams/java/jre/lib/amd64/j9vm -Wl,-rpath -Wl,/opt/ibm/InfoSphereStreams/java/jre/lib/amd64/j9vm -lpthread -ldl -lstreams-stdtk-runtime -lstreams-stdtk-runtime $(SPL_LDFLAGS)build/pe/BeJyz9CkyDEgsKk4tijcJzszLjjcySyzKLMnITS3JTHatKChKLS7OzM8LLilKTcyNNzZMy8xJDQfKI6RC8sH6oSoAyjofAD.o \
+	    build/operator/fileWithExpressionToParseStream.o \
+	    build/type/BeJwrMSw2Mk3LzEkNzyzJcK0oKEotLs7MzwvJD0gsKk4FAK5VAuq.o \
+	    build/operator/arithmeticExpressionStream.o \
+	    build/type/BeJwrMSw2MkgsyizJyE0tyUx2rSgoSi0uzszPAwB5qAnV.o \
+	    build/type/BeJyrNI03Ti4uMy6pKDFOyswzTcrJT842ycnMSwUAf_1wJCo.o \
+	    build/operator/Lr1Parser.o \
+	    build/type/BeJwrMSw2MkksyizJyE0tyUx2rSgoSi0uzszPCylKTQUApTULBp.o \
+	    build/operator/Sink.o \
+	    build/type/BeJyrNIs3LSjNSy4xTc4vzSsxKc6sSjUpycxNNU_0pzEvMzUw2zUstSy0CACk7A8P.o 

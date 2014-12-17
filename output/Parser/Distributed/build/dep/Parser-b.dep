@@ -1,0 +1,3 @@
+	@$(CXX) $(SPL_CXXFLAGS) -o bin/Parser-b.dpe -fPIC -shared $(PEParser-b) $(SPL_LDFLAGS)build/pe/BeJwzCc7My44HAAcAAIp.o \
+	    build/operator/Sink.o \
+	    build/type/BeJwrMSw2z00tLk5MTwUAGG4EA1.o 

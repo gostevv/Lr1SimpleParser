@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<applicationSet xmlns="http://www.ibm.com/xmlns/prod/streams/application" name="Parser.appset" productVersion="3.2.1.0" xmlns:tt="http://www.ibm.com/xmlns/prod/streams/spl/tupleType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <description>Parser application set</description>
+
+  <application applicationDirectory="../../../." applicationScope="Default" checkpointDirectory="../../../data/ckpt" dataDirectory="../../../data" name="Parser" outputDirectory="/home/streamsadmin/workspace/parser_lr1/output/Parser/Distributed" version="1.0.0">
+    <libraries/>
+    <hostpools>
+      <hostpool index="0" membershipMode="shared" name="$default"/>
+    </hostpools>
+    <tupleTypes>
+      <tupleType index="0">
+        <attribute name="fileWithExpressionToParse" type="rstring"/>
+        <tuple>
+          <tt:attr name="fileWithExpressionToParse" type="rstring"/>
+        </tuple>
+      </tupleType>
+      <tupleType index="1">
+        <attribute name="arithmeticExpression" type="rstring"/>
+        <tuple>
+          <tt:attr name="arithmeticExpression" type="rstring"/>
+        </tuple>
+      </tupleType>
+      <tupleType index="2">
+        <attribute name="arithmeticExpressionTree" type="rstring"/>
+        <tuple>
+          <tt:attr name="arithmeticExpressionTree" type="rstring"/>
+        </tuple>
+      </tupleType>
+    </tupleTypes>
+    <pes>
+      <pe class="BeJyz9CkyDEgsKk4tijcJzszLjjcySyzKLMnITS3JTHatKChKLS7OzM8LLilKTcyNNzZMy8xJDQfKI6RC8sH6oSoAyjofAD" index="0" language="C++" optimized="false" relocatable="false" restartable="false">
+        <envVars>
+          <envVar name="STREAMS_JAVA_HOME" value="/opt/ibm/InfoSphereStreams/java"/>
+        </envVars>
+        <executable digest="Pu81V4OSZH34blJMU/jWK/8rz2k=" dynamicLoad="true">
+          <wrapper>none</wrapper>
+          <executableUri>bin/Parser-a.dpe</executableUri>
+          <arguments/>
+          <dependencies/>
+        </executable>
+        <operInstances>
+          <operInstance class="fileWithExpressionToParseStream" definitionIndex="0" index="0" name="fileWithExpressionToParseStream" singleThreadedOnInputs="true" singleThreadedOnOutputs="true">
+            <resources>
+              <poolLocation poolIndex="0"/>
+            </resources>
+            <runtimeConstants>
+              <runtimeConstant name="lit$0" value="&quot;/home/streamsadmin/workspace/input&quot;"/>
+              <runtimeConstant name="lit$1" value="5"/>
+              <runtimeConstant name="lit$2" value="5"/>
+            </runtimeConstants>
+            <inputPorts/>
+            <outputPorts>
+              <outputPort index="0" isMutable="false" name="fileWithExpressionToParseStream" streamName="fileWithExpressionToParseStream" tupleTypeIndex="0" viewable="true">
+                <intraPeConnection iportIndex="0" operInstanceIndex="1"/>
+              </outputPort>
+            </outputPorts>
+          </operInstance>
+          <operInstance class="arithmeticExpressionStream" definitionIndex="1" index="1" name="arithmeticExpressionStream" singleThreadedOnInputs="true" singleThreadedOnOutputs="true">
+            <resources>
+              <poolLocation poolIndex="0"/>
+            </resources>
+            <runtimeConstants/>
+            <inputPorts>
+              <inputPort index="0" isMutable="false" name="fileWithExpressionToParseStream" tupleTypeIndex="0">
+                <intraPeConnection operInstanceIndex="0" oportIndex="0"/>
+              </inputPort>
+            </inputPorts>
+            <outputPorts>
+              <outputPort index="0" isMutable="true" name="arithmeticExpressionStream" streamName="arithmeticExpressionStream" tupleTypeIndex="1" viewable="true">
+                <intraPeConnection iportIndex="0" operInstanceIndex="2"/>
+              </outputPort>
+            </outputPorts>
+          </operInstance>
+          <operInstance class="Lr1Parser" definitionIndex="2" index="2" name="Lr1Parser" singleThreadedOnInputs="true" singleThreadedOnOutputs="false">
+            <resources>
+              <poolLocation poolIndex="0"/>
+            </resources>
+            <runtimeConstants>
+              <runtimeConstant name="lit$0" value="&quot;-Xmx128m&quot;"/>
+            </runtimeConstants>
+            <inputPorts>
+              <inputPort index="0" isMutable="false" name="arithmeticExpressionStream" tupleTypeIndex="1">
+                <intraPeConnection operInstanceIndex="1" oportIndex="0"/>
+              </inputPort>
+            </inputPorts>
+            <outputPorts>
+              <outputPort index="0" isMutable="true" name="Lr1Parser" streamName="Lr1Parser" tupleTypeIndex="2" viewable="true">
+                <intraPeConnection iportIndex="0" operInstanceIndex="3"/>
+              </outputPort>
+            </outputPorts>
+          </operInstance>
+          <operInstance class="Sink" definitionIndex="3" index="3" name="Sink" singleThreadedOnInputs="false" singleThreadedOnOutputs="false">
+            <resources>
+              <poolLocation poolIndex="0"/>
+            </resources>
+            <runtimeConstants>
+              <runtimeConstant name="lit$0" value="&quot;/home/streamsadmin/workspace/output/1.xml&quot;"/>
+            </runtimeConstants>
+            <inputPorts>
+              <inputPort index="0" isMutable="false" name="Lr1Parser" tupleTypeIndex="2">
+                <intraPeConnection operInstanceIndex="2" oportIndex="0"/>
+              </inputPort>
+            </inputPorts>
+            <outputPorts/>
+          </operInstance>
+        </operInstances>
+        <tracing level="error"/>
+        <inputPorts/>
+        <outputPorts/>
+      </pe>
+    </pes>
+    <operDefinitions>
+      <operDefinition index="0" kind="spl.adapter::DirectoryScan">
+        <customMetricIndicies>
+          <customMetricIndex>0</customMetricIndex>
+        </customMetricIndicies>
+      </operDefinition>
+      <operDefinition index="1" kind="spl.adapter::FileSource">
+        <customMetricIndicies>
+          <customMetricIndex>1</customMetricIndex>
+          <customMetricIndex>2</customMetricIndex>
+        </customMetricIndicies>
+      </operDefinition>
+      <operDefinition index="2" kind="spl.utility::JavaOp"/>
+      <operDefinition index="3" kind="spl.adapter::FileSink">
+        <customMetricIndicies>
+          <customMetricIndex>3</customMetricIndex>
+          <customMetricIndex>4</customMetricIndex>
+        </customMetricIndicies>
+      </operDefinition>
+    </operDefinitions>
+    <composites>
+      <sourceUris>
+        <uri index="0" path="file:///home/streamsadmin/workspace/parser_lr1/Parser.spl"/>
+      </sourceUris>
+      <compositeOpers>
+        <compositeOper endLine="41" index="0" kind="Parser" numberOfInputPorts="0" numberOfOutputPorts="0" sourceIndex="0" startLine="3" toolkitIndex="0">
+          <description>Parser Composite</description>
+        </compositeOper>
+      </compositeOpers>
+      <compositeOperInstances>
+        <compositeOperInstance compositeOperIndex="0" endLine="41" index="4" name="Parser" sourceIndex="0" startLine="3">
+          <primitiveOperInstance endLine="15" index="0" kind="spl.adapter::DirectoryScan" name="fileWithExpressionToParseStream" sourceIndex="0" startLine="7" toolkitIndex="1">
+            <outputPorts>
+              <port index="0">
+                <connections>
+                  <connection operIndex="1" operName="arithmeticExpressionStream" portIndex="0" portKind="input"/>
+                </connections>
+              </port>
+            </outputPorts>
+          </primitiveOperInstance>
+          <primitiveOperInstance endLine="21" index="1" kind="spl.adapter::FileSource" name="arithmeticExpressionStream" sourceIndex="0" startLine="17" toolkitIndex="1">
+            <inputPorts>
+              <port index="0">
+                <connections>
+                  <connection operIndex="0" operName="fileWithExpressionToParseStream" portIndex="0" portKind="output"/>
+                </connections>
+              </port>
+            </inputPorts>
+            <outputPorts>
+              <port index="0">
+                <connections>
+                  <connection operIndex="2" operName="Lr1Parser" portIndex="0" portKind="input"/>
+                </connections>
+              </port>
+            </outputPorts>
+          </primitiveOperInstance>
+          <primitiveOperInstance endLine="30" index="2" kind="spl.utility::JavaOp" name="Lr1Parser" sourceIndex="0" startLine="23" toolkitIndex="1">
+            <inputPorts>
+              <port index="0">
+                <connections>
+                  <connection operIndex="1" operName="arithmeticExpressionStream" portIndex="0" portKind="output"/>
+                </connections>
+              </port>
+            </inputPorts>
+            <outputPorts>
+              <port index="0">
+                <connections>
+                  <connection operIndex="3" operName="Sink" portIndex="0" portKind="input"/>
+                </connections>
+              </port>
+            </outputPorts>
+          </primitiveOperInstance>
+          <primitiveOperInstance endLine="39" index="3" kind="spl.adapter::FileSink" name="Sink" sourceIndex="0" startLine="32" toolkitIndex="1">
+            <inputPorts>
+              <port index="0">
+                <connections>
+                  <connection operIndex="2" operName="Lr1Parser" portIndex="0" portKind="output"/>
+                </connections>
+              </port>
+            </inputPorts>
+          </primitiveOperInstance>
+        </compositeOperInstance>
+      </compositeOperInstances>
+    </composites>
+    <toolkits>
+      <toolkit index="0" name="parser_lr1" uri="file:///home/streamsadmin/workspace/parser_lr1" version="1.0.0"/>
+      <toolkit index="1" name="spl" uri="file:///opt/ibm/InfoSphereStreams/toolkits/spl" version="1.1.0"/>
+      <toolkit index="2" name="com.ibm.streams.bigdata" uri="file:///opt/ibm/InfoSphereStreams/toolkits/com.ibm.streams.bigdata" version="2.1.0"/>
+      <toolkit index="3" name="com.ibm.streams.cep" uri="file:///opt/ibm/InfoSphereStreams/toolkits/com.ibm.streams.cep" version="1.0.0"/>
+      <toolkit index="4" name="com.ibm.streams.db" uri="file:///opt/ibm/InfoSphereStreams/toolkits/com.ibm.streams.db" version="1.4.0"/>
+      <toolkit index="5" name="com.ibm.streams.etl.datastage" uri="file:///opt/ibm/InfoSphereStreams/toolkits/com.ibm.streams.etl" version="1.0.0"/>
+      <toolkit index="6" name="com.ibm.streams.financial" uri="file:///opt/ibm/InfoSphereStreams/toolkits/com.ibm.streams.financial" version="1.0.0"/>
+      <toolkit index="7" name="com.ibm.streams.geospatial" uri="file:///opt/ibm/InfoSphereStreams/toolkits/com.ibm.streams.geospatial" version="1.1.1"/>
+      <toolkit index="8" name="com.ibm.streams.inet" uri="file:///opt/ibm/InfoSphereStreams/toolkits/com.ibm.streams.inet" version="1.0.0"/>
+      <toolkit index="9" name="com.ibm.streams.messaging" uri="file:///opt/ibm/InfoSphereStreams/toolkits/com.ibm.streams.messaging" version="2.1.000"/>
+      <toolkit index="10" name="com.ibm.streams.mining" uri="file:///opt/ibm/InfoSphereStreams/toolkits/com.ibm.streams.mining" version="1.0.0"/>
+      <toolkit index="11" name="com.ibm.streams.text" uri="file:///opt/ibm/InfoSphereStreams/toolkits/com.ibm.streams.text" version="1.2.0"/>
+      <toolkit index="12" name="com.ibm.streams.timeseries" uri="file:///opt/ibm/InfoSphereStreams/toolkits/com.ibm.streams.timeseries" version="2.1.0"/>
+      <toolkit index="13" name="com.ibm.streamsx.dps" uri="file:///home/streamsadmin/SPL-Examples-For-Beginners/com.ibm.streamsx.dps" version="1.0.0"/>
+      <toolkit index="14" name="com.ibm.streamsx.ps" uri="file:///home/streamsadmin/SPL-Examples-For-Beginners/com.ibm.streamsx.ps" version="1.0.0"/>
+    </toolkits>
+    <customMetrics>
+      <customMetric index="0" kind="Counter" name="nScans">
+        <description>Number of times the directory has been scanned for files</description>
+      </customMetric>
+      <customMetric index="1" kind="Counter" name="nFilesOpened">
+        <description>Number of files opened by the FileSource operator</description>
+      </customMetric>
+      <customMetric index="2" kind="Counter" name="nInvalidTuples">
+        <description>Number of tuples that failed to read correctly</description>
+      </customMetric>
+      <customMetric index="3" kind="Counter" name="nFilesOpened">
+        <description>Number of files opened by the FileSink operator</description>
+      </customMetric>
+      <customMetric index="4" kind="Counter" name="nTupleWriteErrors">
+        <description>Number of tuple writes that failed</description>
+      </customMetric>
+    </customMetrics>
+  </application>
+
+</applicationSet>

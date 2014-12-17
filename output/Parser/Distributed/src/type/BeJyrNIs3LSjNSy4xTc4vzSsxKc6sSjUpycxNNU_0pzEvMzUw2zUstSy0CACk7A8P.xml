@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<enumerationModel xmlns="http://www.ibm.com/xmlns/prod/streams/spl/enumeration" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <class>BeJyrNIs3LSjNSy4xTc4vzSsxKc6sSjUpycxNNU_0pzEvMzUw2zUstSy0CACk7A8P</class>
+
+  <enumerators>
+    <enumerator>
+      <name>punct</name>
+    </enumerator>
+    <enumerator>
+      <name>count</name>
+    </enumerator>
+    <enumerator>
+      <name>size</name>
+    </enumerator>
+    <enumerator>
+      <name>time</name>
+    </enumerator>
+    <enumerator>
+      <name>dynamic</name>
+    </enumerator>
+    <enumerator>
+      <name>never</name>
+    </enumerator>
+  </enumerators>
+
+</enumerationModel>
